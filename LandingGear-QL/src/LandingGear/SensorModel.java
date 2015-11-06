@@ -17,6 +17,7 @@ public class SensorModel extends Observable {
 	private String handleState="";
 	String doorState;
 	String gearState;
+	private boolean anomalie;
 	private ArrayList myDoorsStates = new ArrayList();
 	private ArrayList myGearsStates = new ArrayList();
 	private Iterator d = myDoorsStates.iterator();
@@ -122,22 +123,22 @@ public void putDoorsMoving(){
 	if(doorIsMoving==false){
 		//simulate a treatment
 				try {
-					Thread.sleep(10000);
+					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
 				
 				//doors are moving
-				//synchronized(this){		
+				synchronized(this){		
 					setDoor_opened(false);
 					setDoor_closed(false);
 					setDoorIsMoving(true);
-					
+					fillDoorsList();
 					setChanged();
 					notifyObservers();
 					
-					//fillDoorsList();
-				//}
+					
+				}
 	}
 }
 	
@@ -151,16 +152,16 @@ public void putDoorsOpened(){
 				}
 				
 				//doors are opened
-				//synchronized(this){		
+				synchronized(this){		
 					setDoor_closed(false);
 					setDoorIsMoving(false);
 					setDoor_opened(true);
-					
+					fillDoorsList();
 					setChanged();
 					notifyObservers();
 					
-					//fillDoorsList();
-				//}
+					
+				}
 	}
 }
 	
@@ -174,16 +175,16 @@ public void putGearsMoving(){
 				}
 				
 				//gears are moving
-				//synchronized(this){		
+				synchronized(this){		
 					setGear_retracted(false);
 					setGear_extended(false);
 					setGearIsMoving(true);
-					
+					fillGearsList();
 					setChanged();
 					notifyObservers();
 					
-					//fillGearsList();
-				//}
+					
+				}
 	}
 }
 	
@@ -197,186 +198,22 @@ public void putGearsExtended(){
 				}
 				
 				//gears are extended
-				//synchronized(this){
+				synchronized(this){
 					setGearIsMoving(false);
 					setGear_retracted(false);
 					setGear_extended(true);
-					
+					fillGearsList();
 					setChanged();
 					notifyObservers();
 					
-					//fillGearsList();
 					
-				//}
+					
+				}
 	}
 }
 	
-		
-	/*if(doorIsMoving==false){
-		//simulate a treatment
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//doors are moving
-				synchronized(this){		
-					setDoor_opened(false);
-					setDoor_closed(false);
-					setDoorIsMoving(true);
-							
-					setChanged();
-					notifyObservers();
-				}
-	}*/
+	
 public void putDoorsClosed(){
-	if(door_closed==false){
-		//simulate a treatment
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//doors are closed
-				//synchronized(this){
-					setDoorIsMoving(false);
-					setDoor_opened(false);
-					setDoor_closed(true);
-					
-					
-					setChanged();
-					notifyObservers();	
-					
-					//fillDoorsList();
-				//}
-
-	}
-}
-	
-		
-	//}
-
-	//sequence to retract the gears
-	//public void retractSequence(){
-public void putGearsRetracted(){
-	if(gear_retracted==false){
-		//simulate a treatment
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//gears are retracted
-				//synchronized(this){		
-					setGear_extended(false);
-					setGearIsMoving(false);
-					setGear_retracted(true);
-					
-					setChanged();
-					notifyObservers();
-					
-					//fillGearsList();
-				//}
-	}
-}
-	/*if(doorIsMoving==false){
-		//simulate a treatment
-				try {
-					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//doors are moving
-				synchronized(this){		
-					setDoor_opened(false);
-					setDoor_closed(false);
-					setDoorIsMoving(true);
-					
-					setChanged();
-					notifyObservers();
-				}
-		}
-		
-	if(door_opened==false){
-		//simulate a treatment
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//doors are opened
-				synchronized(this){		
-					setDoor_closed(false);
-					setDoorIsMoving(false);
-					setDoor_opened(true);
-					
-					setChanged();
-					notifyObservers();
-				}
-	}
-		
-	if(gearIsMoving==false){
-		//simulate a treatment
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//gears are moving
-				synchronized(this){		
-					setGear_retracted(false);
-					setGear_extended(false);
-					setGearIsMoving(true);
-					
-					setChanged();
-					notifyObservers();
-				}
-	}
-		
-	if(gear_retracted){
-		//simulate a treatment
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//gears are retracted
-				synchronized(this){		
-					setGear_extended(false);
-					setGearIsMoving(false);
-					setGear_retracted(true);
-					
-					setChanged();
-					notifyObservers();
-				}
-	}
-		
-	if(doorIsMoving==false){
-		//simulate a treatment
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//doors are moving
-				synchronized(this){		
-					setDoor_opened(false);
-					setDoor_closed(false);
-					setDoorIsMoving(true);
-									
-					setChanged();
-					notifyObservers();
-				}
-	}
-		
 	if(door_closed==false){
 		//simulate a treatment
 				try {
@@ -390,15 +227,44 @@ public void putGearsRetracted(){
 					setDoorIsMoving(false);
 					setDoor_opened(false);
 					setDoor_closed(true);
+					fillDoorsList();
 					
 					setChanged();
 					notifyObservers();	
+					
+					
+				}
+
+	}
+}
+	
+		
+	//}
+
+//sequence to retract the gears
+public void putGearsRetracted(){
+	if(gear_retracted==false){
+		//simulate a treatment
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				//gears are retracted
+				synchronized(this){		
+					setGear_extended(false);
+					setGearIsMoving(false);
+					setGear_retracted(true);
+					fillGearsList();
+					setChanged();
+					notifyObservers();
+					
+					
 				}
 	}
-		
-		
-		
-	}*/
+}
+	
 	
 	public void SystemState(){
 		
@@ -478,6 +344,16 @@ public void putGearsRetracted(){
 
 	public void setMyGearsStates(ArrayList myGearsStates) {
 		this.myGearsStates = myGearsStates;
+	}
+	
+	public boolean isAnomalie() {
+		return anomalie;
+	}
+
+	public void setAnomalie(boolean anomalie) {
+		this.anomalie = anomalie;
+		setChanged();
+		notifyObservers();
 	}
 
 	

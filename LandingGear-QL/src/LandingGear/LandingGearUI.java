@@ -36,6 +36,7 @@ public class LandingGearUI extends JFrame implements Observer{
 	final BufferedImage Im_doorsClosed = ImageIO.read(new File("door2_closed.jpg"));
 	final BufferedImage Im_doorsOpened = ImageIO.read(new File("door2_opened.jpg"));
 	final BufferedImage Im_doorsMoving = ImageIO.read(new File("door2_moving.jpg"));
+	final BufferedImage Im_anomalie = ImageIO.read(new File("Gear_manoeuvring_Anomalie.png"));
 	
 //Handle, doors and gears Panel containing Images 
 	private JPanel ImPan_handle = new JPanel() {
@@ -118,12 +119,21 @@ public class LandingGearUI extends JFrame implements Observer{
             g.drawImage(Im_doorsClosed, 0, 0, getWidth(), getHeight(), this);//changer
         }
 	};
+	private JPanel ImPan_Anomalie = new JPanel() {
+		@Override
+        protected void paintComponent(Graphics g) {
+			super.setSize(146,166);
+            super.paintComponent(g);
+            g.drawImage(Im_anomalie, 0, 0, getWidth(), getHeight(), this);//changer
+        }
+	};
+	
 	
 	//list of panels
 	private List<JPanel> myHandlePanels = new ArrayList<JPanel>();
 	private List<JPanel> myDoorsPanels = new ArrayList<JPanel>();
 	private List<JPanel> myGearsPanels = new ArrayList<JPanel>();
-	
+	//buttons
 	private static JButton upbtn = new JButton("up");
 	private static JButton downbtn = new JButton("down");
 
@@ -147,17 +157,20 @@ public class LandingGearUI extends JFrame implements Observer{
 		title2 = BorderFactory.createTitledBorder(loweredetched, "Doors states");
 		
 		setTitle("LandingGearInterface");
-		setSize(500, 450);
+		//setSize(500, 450);
+		setSize(800, 450);
 		setLayout(new GridLayout(1,3));
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 		
 		//panel containing the handle
 		handlePan.setBackground(backcolor);
+		GridLayout layout = new GridLayout(2,1);
+		
+		//handlePan.setLayout(layout);
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
-		handlePan.add(ImPan_handle);
 		add(handlePan, c);
 		
 		//panel containing the gears and doors panels
@@ -171,7 +184,6 @@ public class LandingGearUI extends JFrame implements Observer{
 		
 		//panel containing the gears
 		gearsPan.setBackground(backcolor);
-		gearsPan.setLayout(new GridLayout(1,3));
 		GridBagConstraints ccc = new GridBagConstraints();
 		cc.fill = GridBagConstraints.BOTH;
 		cc.gridx = 0;
@@ -204,9 +216,10 @@ public class LandingGearUI extends JFrame implements Observer{
 		gearsPan.add(ImPan_gearsExtended,ccc);
 		myGearsPanels.add(ImPan_gearsExtended);
 		//Doors Images
-		doorsPan.add(ImPan_doorsClosed);
+		doorsPan.add(ImPan_doorsClosed,ccc);
 		myDoorsPanels.add(ImPan_doorsClosed);
 		//Images
+		handlePan.add(ImPan_handle);
 		myHandlePanels.add(ImPan_handle);
 		
 		//make view observer of the model
@@ -231,6 +244,7 @@ public class LandingGearUI extends JFrame implements Observer{
 		refreshHandleView();
 		refreshDoorsView();
 		refreshGearsView();
+		refreshAnomalieView();
 	}
 	
 //methods to update the view
@@ -314,6 +328,15 @@ public class LandingGearUI extends JFrame implements Observer{
 		}
 	}
 	
+	public void refreshAnomalieView(){
+		if(model.isAnomalie()==true){
+			gearsPan.remove(myGearsPanels.get(myGearsPanels.size()-1));
+			gearsPan.add(ImPan_Anomalie);
+			myGearsPanels.add(ImPan_Anomalie);
+			gearsPan.validate();
+			gearsPan.repaint();
+		}
+	}
 	//controller listen of the view
 	public void addController(MouseListener dcontroller){
 		upbtn.addMouseListener(dcontroller);;

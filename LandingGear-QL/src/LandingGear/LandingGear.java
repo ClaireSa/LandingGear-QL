@@ -9,8 +9,7 @@ public class LandingGear {
 	
 		SensorModel model =new SensorModel();
 		LandingGearUI frame = new LandingGearUI(model);
-		//model.initialState();
-		//model.initialGearsState();
+		
 	}
 
 }
