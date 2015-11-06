@@ -16,8 +16,12 @@ import java.io.IOException;
 
 //add image in project
 //add panel in frame panel
-public class LandingGearUI extends JFrame implements Observer{
+public class  LandingGearUI extends JFrame implements Observer{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//private JFrame frame = new JFrame();
 	
 	//Panel instantiation
@@ -40,6 +44,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	
 //Handle, doors and gears Panel containing Images 
 	private JPanel ImPan_handle = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(101, 284);
@@ -49,6 +58,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	};
 	
 	private JPanel ImPan_handleUp = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(101, 284);
@@ -58,6 +72,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	};
 	
 	private JPanel ImPan_handleDown = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(101, 284);
@@ -67,6 +86,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	};
 	
 	private JPanel ImPan_gearsRetracted = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(146,166);
@@ -76,6 +100,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	};
 	
 	private JPanel ImPan_gearsMoving = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(146,166);
@@ -85,6 +114,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	};
 	
 	private JPanel ImPan_gearsExtended = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(146,166);
@@ -94,6 +128,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	};
 	
 	private JPanel ImPan_doorsOpened = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(116,110);
@@ -103,6 +142,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	};
 	
 	private JPanel ImPan_doorsMoving = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(116,110);
@@ -112,6 +156,11 @@ public class LandingGearUI extends JFrame implements Observer{
 	};
 	
 	private JPanel ImPan_doorsClosed = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(116,110);
@@ -120,6 +169,11 @@ public class LandingGearUI extends JFrame implements Observer{
         }
 	};
 	private JPanel ImPan_Anomalie = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		@Override
         protected void paintComponent(Graphics g) {
 			super.setSize(146,166);
@@ -165,9 +219,6 @@ public class LandingGearUI extends JFrame implements Observer{
 		
 		//panel containing the handle
 		handlePan.setBackground(backcolor);
-		GridLayout layout = new GridLayout(2,1);
-		
-		//handlePan.setLayout(layout);
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
@@ -230,11 +281,7 @@ public class LandingGearUI extends JFrame implements Observer{
 		//make the controller listener of the view
 		addController(dcontroller);
 		
-		setLocationRelativeTo(null);
-		//display the frame
-		setVisible(true);
-		//terminate the process when the close button is clicked
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		
 	}
 	

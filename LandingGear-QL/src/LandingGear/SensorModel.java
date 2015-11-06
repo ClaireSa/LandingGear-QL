@@ -1,8 +1,6 @@
 package LandingGear;
 
-import java.awt.List;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Observable;
 
 
@@ -18,10 +16,9 @@ public class SensorModel extends Observable {
 	String doorState;
 	String gearState;
 	private boolean anomalie;
-	private ArrayList myDoorsStates = new ArrayList();
-	private ArrayList myGearsStates = new ArrayList();
-	private Iterator d = myDoorsStates.iterator();
-	private Iterator g = myGearsStates.iterator();
+	private ArrayList<String> myDoorsStates = new ArrayList<String>();
+	private ArrayList<String> myGearsStates = new ArrayList<String>();
+	
 	
 	//constructor
 	public SensorModel(){}	
@@ -330,19 +327,19 @@ public void putGearsRetracted(){
 		notifyObservers();
 	}
 	
-	public ArrayList getMyDoorsStates() {
+	public ArrayList<String> getMyDoorsStates() {
 		return myDoorsStates;
 	}
 
-	public void setMyDoorsStates(ArrayList myDoorsStates) {
+	public void setMyDoorsStates(ArrayList<String> myDoorsStates) {
 		this.myDoorsStates = myDoorsStates;
 	}
 
-	public ArrayList getMyGearsStates() {
+	public ArrayList<String> getMyGearsStates() {
 		return myGearsStates;
 	}
 
-	public void setMyGearsStates(ArrayList myGearsStates) {
+	public void setMyGearsStates(ArrayList<String> myGearsStates) {
 		this.myGearsStates = myGearsStates;
 	}
 	

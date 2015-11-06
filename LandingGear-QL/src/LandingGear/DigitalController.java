@@ -1,23 +1,18 @@
 package LandingGear;
 
-import java.awt.List;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+
 
 public class DigitalController implements MouseListener{
 
 	protected SensorModel model;
-	private LandingGearUI LgUI ;
 	private boolean stop = true;
 	
 	//constructor
 	public DigitalController(SensorModel model, LandingGearUI LgUI){
 		this.model=model;
-		this.LgUI=LgUI;
 	}
 
 	
