@@ -119,10 +119,10 @@ public class DigitalController implements MouseListener{
 				});
 		
 		
-		if(e.getSource().equals(LandingGearUI.getUpbtn())){
+		if(e.getSource().equals(LandingGearUI.getImPan_up())){
 			t.start();
 		}
-		else if(e.getSource().equals(LandingGearUI.getDownbtn())){
+		else if(e.getSource().equals(LandingGearUI.getImPan_down())){
 			t2.start();
 		}
 		

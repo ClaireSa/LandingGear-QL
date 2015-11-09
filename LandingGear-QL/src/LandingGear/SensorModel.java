@@ -143,7 +143,7 @@ public void putDoorsOpened(){
 	if(door_opened==false){
 		//simulate a treatment
 				try {
-					Thread.sleep(5000);
+		Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

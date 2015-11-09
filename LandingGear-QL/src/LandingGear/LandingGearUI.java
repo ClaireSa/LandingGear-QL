@@ -41,6 +41,9 @@ public class  LandingGearUI extends JFrame implements Observer{
 	final BufferedImage Im_doorsOpened = ImageIO.read(new File("door2_opened.jpg"));
 	final BufferedImage Im_doorsMoving = ImageIO.read(new File("door2_moving.jpg"));
 	final BufferedImage Im_anomalie = ImageIO.read(new File("Gear_manoeuvring_Anomalie.png"));
+	static BufferedImage Im_up; /*ImageIO.read(new File("bouton.png"));*/
+	static BufferedImage Im_down;
+	
 	
 //Handle, doors and gears Panel containing Images 
 	private JPanel ImPan_handle = new JPanel() {
@@ -68,6 +71,36 @@ public class  LandingGearUI extends JFrame implements Observer{
 			super.setSize(101, 284);
             super.paintComponent(g);
             g.drawImage(Im_handleUp, 0, 0, getWidth(), getHeight(), this);
+        }
+	};
+	
+	private static JPanel ImPan_up = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		@Override
+        protected void paintComponent(Graphics g) {
+			super.setSize(56, 25);
+			super.setLocation(17, 18);
+            super.paintComponent(g);
+            g.drawImage(Im_up, 0, 0, getWidth(), getHeight(), this);
+        }
+	};
+	
+	private static JPanel ImPan_down = new JPanel() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		@Override
+        protected void paintComponent(Graphics g) {
+			super.setSize(56, 25);
+			super.setLocation(20, 231);
+            super.paintComponent(g);
+            g.drawImage(Im_down, 0, 0, getWidth(), getHeight(), this);
         }
 	};
 	
@@ -187,11 +220,7 @@ public class  LandingGearUI extends JFrame implements Observer{
 	private List<JPanel> myHandlePanels = new ArrayList<JPanel>();
 	private List<JPanel> myDoorsPanels = new ArrayList<JPanel>();
 	private List<JPanel> myGearsPanels = new ArrayList<JPanel>();
-	//buttons
-	private static JButton upbtn = new JButton("up");
-	private static JButton downbtn = new JButton("down");
 
-	
 	TitledBorder title1;
 	TitledBorder title2;
 	Color backcolor = Color.decode("#3b3a3a");
@@ -205,7 +234,8 @@ public class  LandingGearUI extends JFrame implements Observer{
 	public LandingGearUI(SensorModel model) throws IOException{
 		
 		this.model = model;
-		
+		Im_up = ImageIO.read(new File("bouton.png"));
+		Im_down = ImageIO.read(new File("bouton.png"));
 		Border loweredetched = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
 		title1 = BorderFactory.createTitledBorder(loweredetched, "Gears states");
 		title2 = BorderFactory.createTitledBorder(loweredetched, "Doors states");
@@ -222,6 +252,7 @@ public class  LandingGearUI extends JFrame implements Observer{
 		c.fill = GridBagConstraints.BOTH;
 		c.gridx = 0;
 		c.gridy = 0;
+		c.gridwidth=1;
 		add(handlePan, c);
 		
 		//panel containing the gears and doors panels
@@ -248,14 +279,6 @@ public class  LandingGearUI extends JFrame implements Observer{
 		cc.gridy = 1;
 		Pan.add(doorsPan, cc);
 		
-		//set the size of the buttons
-		upbtn.setSize(10,10);
-		downbtn.setSize(10,10); 
-		
-		//add buttons in the handle pan
-		handlePan.add(upbtn);
-		handlePan.add(downbtn);
-		
 		//add border and title to the gears and doors panels
 		gearsPan.setBorder(title1);
 		doorsPan.setBorder(title2);
@@ -272,6 +295,11 @@ public class  LandingGearUI extends JFrame implements Observer{
 		//Images
 		handlePan.add(ImPan_handle);
 		myHandlePanels.add(ImPan_handle);
+		//boutons
+		ImPan_up.setOpaque(false);
+		ImPan_down.setOpaque(false);
+		ImPan_handle.add(ImPan_up);
+		ImPan_handle.add(ImPan_down);
 		
 		//make view observer of the model
 		model.addObserver(this);
@@ -280,9 +308,7 @@ public class  LandingGearUI extends JFrame implements Observer{
 		DigitalController dcontroller = new DigitalController(model,this);
 		//make the controller listener of the view
 		addController(dcontroller);
-		
-		
-		
+
 	}
 	
 	
@@ -363,6 +389,8 @@ public class  LandingGearUI extends JFrame implements Observer{
 			handlePan.remove(myHandlePanels.get(myHandlePanels.size()-1));
 			handlePan.add(ImPan_handleUp);
 			myHandlePanels.add(ImPan_handleUp);
+			ImPan_handleUp.add(ImPan_up);
+			ImPan_handleUp.add(ImPan_down);
 			handlePan.validate();
 			handlePan.repaint();
 		}
@@ -370,6 +398,8 @@ public class  LandingGearUI extends JFrame implements Observer{
 			handlePan.remove(myHandlePanels.get(myHandlePanels.size()-1));
 			handlePan.add(ImPan_handleDown);
 			myHandlePanels.add(ImPan_handleDown);
+			ImPan_handleDown.add(ImPan_up);
+			ImPan_handleDown.add(ImPan_down);
 			handlePan.validate();
 			handlePan.repaint();
 		}
@@ -386,17 +416,30 @@ public class  LandingGearUI extends JFrame implements Observer{
 	}
 	//controller listen of the view
 	public void addController(MouseListener dcontroller){
-		upbtn.addMouseListener(dcontroller);;
-		downbtn.addMouseListener(dcontroller);
+		ImPan_up.addMouseListener(dcontroller);
+		ImPan_down.addMouseListener(dcontroller);
 	}
 	
 //getters and setters
-	public static JButton getUpbtn(){
-		return upbtn;
+	public static JPanel getImPan_down() {
+		return ImPan_down;
 	}
-	
-	public static JButton getDownbtn(){
-		return downbtn;
+
+
+	public static void setImPan_down(JPanel imPan_down) {
+		ImPan_down = imPan_down;
 	}
+
+
+	public static JPanel getImPan_up() {
+		return ImPan_up;
+	}
+
+
+	public void setImPan_up(JPanel imPan_up) {
+		ImPan_up = imPan_up;
+	}
+
+
 
 }
