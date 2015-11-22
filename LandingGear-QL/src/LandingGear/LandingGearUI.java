@@ -545,11 +545,11 @@ public class  LandingGearUI extends JFrame implements Observer{
 		if(model.isDoor_closed1()==true){
 					//doors1
 					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));
-					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
-					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));
+					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					doorsPan.add(ImPan_doorsClosed1);
-					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));
+					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					myDoorsPanels1.add(ImPan_doorsClosed1);
 					doorsPan.validate();
 					doorsPan.repaint();
@@ -557,12 +557,12 @@ public class  LandingGearUI extends JFrame implements Observer{
 		
 		if(model.isDoor_closed2()==true){
 					//doors2
-					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));
 					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));
-					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
+					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));
 					doorsPan.add(ImPan_doorsClosed2);
-					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					myDoorsPanels2.add(ImPan_doorsClosed2);
 					doorsPan.validate();
 					doorsPan.repaint();
@@ -570,11 +570,11 @@ public class  LandingGearUI extends JFrame implements Observer{
 		
 		if(model.isDoor_closed3()==true){
 					//doors3
-					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
-					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));
+					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));
 					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
-					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));
+					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));
 					doorsPan.add(ImPan_doorsClosed3);
 					myDoorsPanels3.add(ImPan_doorsClosed3);
 					doorsPan.validate();
@@ -585,11 +585,11 @@ public class  LandingGearUI extends JFrame implements Observer{
 			
 					//doors1
 					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));
-					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
-					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));
+					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					doorsPan.add(ImPan_doorsOpened1);
-					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));
+					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					myDoorsPanels1.add(ImPan_doorsOpened1);
 					doorsPan.validate();
 					doorsPan.repaint();
@@ -597,12 +597,12 @@ public class  LandingGearUI extends JFrame implements Observer{
 		
 		if(model.isDoor_opened2()==true){
 					//doors2
-					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));
 					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));
-					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
+					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));
 					doorsPan.add(ImPan_doorsOpened2);
-					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					myDoorsPanels2.add(ImPan_doorsOpened2);
 					doorsPan.validate();
 					doorsPan.repaint();
@@ -610,11 +610,11 @@ public class  LandingGearUI extends JFrame implements Observer{
 		
 		if(model.isDoor_opened3()==true){
 					//doors3
-					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
-					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));
+					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));
 					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
-					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));
+					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));
 					doorsPan.add(ImPan_doorsOpened3);
 					myDoorsPanels3.add(ImPan_doorsOpened3);
 					doorsPan.validate();
@@ -625,11 +625,11 @@ public class  LandingGearUI extends JFrame implements Observer{
 			
 					//doors1
 					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));
-					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
-					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));
+					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					doorsPan.add(ImPan_doorsMoving1);
-					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));
+					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					myDoorsPanels1.add(ImPan_doorsMoving1);
 					doorsPan.validate();
 					doorsPan.repaint();
@@ -637,12 +637,12 @@ public class  LandingGearUI extends JFrame implements Observer{
 		
 		if(model.isDoorIsMoving2()==true){
 					//doors2
-					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete	
+					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));	
 					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));
-					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
+					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
+					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));
 					doorsPan.add(ImPan_doorsMoving2);
-					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels3.get(myDoorsPanels3.size()-1));
 					myDoorsPanels2.add(ImPan_doorsMoving2);
 					doorsPan.validate();
 					doorsPan.repaint();
@@ -650,11 +650,11 @@ public class  LandingGearUI extends JFrame implements Observer{
 		
 		if(model.isDoorIsMoving3()==true){
 					//doors3
-					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete	
-					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete	
+					doorsPan.remove(myDoorsPanels1.get(myDoorsPanels1.size()-1));	
+					doorsPan.remove(myDoorsPanels2.get(myDoorsPanels2.size()-1));	
 					doorsPan.remove(myDoorsPanels3.get(myDoorsPanels3.size()-1));
-					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));//a enlever ptete
-					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));//a enlever ptete
+					doorsPan.add(myDoorsPanels1.get(myDoorsPanels1.size()-1));
+					doorsPan.add(myDoorsPanels2.get(myDoorsPanels2.size()-1));
 					doorsPan.add(ImPan_doorsMoving3);
 					myDoorsPanels3.add(ImPan_doorsMoving3);
 					doorsPan.validate();
